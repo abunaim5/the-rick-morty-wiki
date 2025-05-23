@@ -1,14 +1,41 @@
 import Image from "next/image";
+import { FaRegCirclePlay } from "react-icons/fa6";
 
 const Banner = () => {
+    const gradientCls = 'bg-gradient-to-r from-[#9DFE00] to-[#14D9E5]'
+
     return (
         <section className='h-screen relative bg-cover bg-top bg-no-repeat bg-[lightgray]/50' style={{ backgroundImage: "url('/images/banner.png')" }}>
-            <div className='absolute w-full h-screen bg-[#191D29]/90 bg-[radial-gradient(90.85%_49.94%_at_50%_50%,rgba(217,217,217,0)_0%,rgba(25,29,41,0.9)_100%)]'>
-                <div className='absolute w-full h-screen opacity-60 bg-[lightgray] bg-no-repeat mix-blend-saturation' style={{ backgroundImage: "url('/images/texture.png')" }} />
+            <div className='absolute w-full h-screen bg-[#191D29]/85 bg-[radial-gradient(90.85%_49.94%_at_50%_50%,rgba(217,217,217,0)_0%,rgba(25,29,41,0.9)_100%)]'>
+                <div className='absolute z-10 w-full h-screen opacity-60 bg-[lightgray] bg-no-repeat mix-blend-saturation' style={{ backgroundImage: "url('/images/texture.png')" }} />
             </div>
-            <Image className='absolute left-1/2 transform -translate-x-1/2 top-14' width={227} height={100} alt='logo' src='/images/logo.png' />
-            <div className='absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2'>
-                <h1 className='text-white text-2xl text-center'>The Rick & Morty</h1>
+
+            <Image className='absolute z-30 left-1/2 transform -translate-x-1/2 top-14' width={227} height={48} alt='logo' src='/images/logo.png' />
+
+            <div className='absolute w-full z-40 top-1/2 transform -translate-y-1/2 text-white'>
+                <div className={`${gradientCls} absolute right-64 bottom-0 w-[171px] h-[282px] rounded-[71px] rotate-[25.82deg]`} />
+                    
+                <div className={`${gradientCls} absolute right-[250px] -bottom-[6px] w-[171px] h-[282px] rounded-[71px] rotate-[25.82deg] blur-2xl opacity-90`} />
+
+                <Image className='absolute right-[170px] bottom-12' width={319} height={180} alt='gun image' src='/images/gun.png' />
+
+                <div className='max-w-fit mx-auto text-9xl font-extrabold uppercase'>
+                    <div className='relative flex items-baseline gap-3 mb-4'>
+                        <Image className='absolute z-10 -top-14 -left-24' width={215} height={215} alt='bubble image' src='/images/bubble.png' />
+                        <div className={`${gradientCls} absolute z-10 right-0 top-5 w-12 h-2 rounded-full`} />
+                        <span className={`${gradientCls} absolute inset-0 -z-10 opacity-25 rounded blur-3xl`} />
+                        <span className='italic'>The</span>
+                        <Image width={225} height={145} alt='portal image' src='/images/portal.png' />
+                        <h1 className={`${gradientCls} text-transparent bg-clip-text text-nowrap`}>Rick &</h1>
+                    </div>
+
+                    <h1 className={`${gradientCls} text-transparent bg-clip-text`}>Morty <span className='font-bold italic text-white'>wiki</span></h1>
+                </div>
+
+                <div className='flex items-center gap-16 max-w-fit mx-auto font-semibold mt-6'>
+                    <button className={`${gradientCls} flex items-center gap-2 px-6 py-4 text-xl rounded-full`}><FaRegCirclePlay className='text-2xl' /> <span>Watch Now</span></button>
+                    <p className='max-w-[364px] text-sm text-[#14D9E5]'>Brilliant but boozy scientist Rick hijacks his fretful teenage grandson, Morty, for wild escapades in other worlds and alternate dimensions.</p>
+                </div>
             </div>
         </section>
     );
