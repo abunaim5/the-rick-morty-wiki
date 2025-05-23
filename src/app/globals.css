@@ -53,4 +53,12 @@
 
 body {
   font-family: "Travel", sans-serif;
+
+  /* hide scrollbar for firefox */
+  overflow: -moz-scrollbars-none;
+}
+
+/* hide scrollbar for chrome, safari, opera */
+body::-webkit-scrollbar {
+  display: none;
 }
