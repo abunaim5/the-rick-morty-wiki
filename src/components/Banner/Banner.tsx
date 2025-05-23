@@ -6,8 +6,6 @@ const Banner = () => {
 
     return (
         <section className='h-screen relative'>
-            <Image className='absolute z-30 left-1/2 transform -translate-x-1/2 top-14' width={227} height={48} alt='logo' src='/images/logo.png' />
-
             <div className='absolute w-full z-40 top-1/2 transform -translate-y-1/2 text-white'>
                 <div className={`${gradientCls} absolute right-64 bottom-0 w-[171px] h-[282px] rounded-[71px] rotate-[25.82deg]`} />
                     
