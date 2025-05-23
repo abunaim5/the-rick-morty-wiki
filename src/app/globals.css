@@ -51,6 +51,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .clip-pentagon {
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% calc(100% - 60px),
+      calc(100% - 80px) 100%,
+      0% 100%,
+      0% 0%
+    );
+  }
+}
+
 body {
   font-family: "Travel", sans-serif;
 
