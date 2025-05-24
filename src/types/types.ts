@@ -13,4 +13,10 @@ type CharacterType = {
     image: string;
 }
 
-export type { CharacterType }
+type EpisodeType = {
+    id: number;
+    name: string;
+    episode: string;
+}
+
+export type { CharacterType, EpisodeType }

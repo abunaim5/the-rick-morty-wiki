@@ -1,6 +1,7 @@
 // import Image from "next/image";
 
 import Banner from "@/components/Banner/Banner";
+import Episodes from "@/components/Episodes/Episodes";
 import MeetCast from "@/components/MeetCast/MeetCast";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       <div className='relative z-30 pt-[235px]'>
         <Banner />
         <MeetCast />
+        <Episodes />
       </div>
     </div>
   );
