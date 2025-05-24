@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import { FaRegCirclePlay } from "react-icons/fa6";
 

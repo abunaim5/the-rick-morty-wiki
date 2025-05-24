@@ -1,11 +1,12 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
     return (
-        <nav>
-            <Link href='/'>
-                <Image className='absolute z-30 left-1/2 transform -translate-x-1/2 top-14' width={227} height={48} alt='logo' src='/images/logo.png' />
+        <nav className='w-full'>
+            <Link href='/' className='absolute z-50 left-1/2 transform -translate-x-1/2 top-14'>
+                <Image className='' width={227} height={48} alt='logo' src='/images/logo.png' />
             </Link>
         </nav>
     );
