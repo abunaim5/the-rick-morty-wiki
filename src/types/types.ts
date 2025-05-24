@@ -11,12 +11,18 @@ type CharacterType = {
         name: string;
     };
     image: string;
-}
+};
 
 type EpisodeType = {
     id: number;
     name: string;
     episode: string;
-}
+};
 
-export type { CharacterType, EpisodeType }
+type LocationType = {
+    id: number;
+    name: string;
+    // episode: string;
+};
+
+export type { CharacterType, EpisodeType, LocationType }

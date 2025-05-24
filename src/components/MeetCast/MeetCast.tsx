@@ -24,7 +24,7 @@ const MeetCast = () => {
     };
 
     return (
-        <section className='pb-[107px] mx-[75px] mt-[85px]'>
+        <section className='pb-24 mx-[75px] mt-[85px]'>
             <div className='flex items-center justify-between text-white'>
                 <h3 className='text-2xl font-medium'>Meet The Cast</h3>
                 <button className='text-lg px-6 py-[10px] rounded-lg border border-[#9DFE00]'>View All</button>

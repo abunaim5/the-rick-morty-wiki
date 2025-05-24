@@ -1,12 +1,12 @@
 'use client'
+import { LocationType } from "@/types/types";
+import useLocations from "@/utils/useLocations";
+import { useRef, useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import PentagonCard from "../PentagonCard/PentagonCard";
-import { useRef, useState } from "react";
-import useEpisodes from "@/utils/useEpisodes";
-import { EpisodeType } from "@/types/types";
 
-const Episodes = () => {
-    const episodes: EpisodeType[] = useEpisodes();
+const Locations = () => {
+    const locations: LocationType[] = useLocations();
     const scrollRef = useRef<HTMLDivElement>(null);
     const [atStart, setAtStart] = useState<boolean>(true);
     const [atEnd, setAtEnd] = useState<boolean>(false);
@@ -24,8 +24,8 @@ const Episodes = () => {
     };
 
     return (
-        <section className='pb-24 mx-[75px] text-white'>
-            <h3 className='text-2xl font-medium'>Episodes</h3>
+        <section className='pb-[70px] mx-[75px] text-white'>
+            <h3 className='text-2xl font-medium'>Locations</h3>
 
             <div className='relative mt-9'>
                 {/* scroll buttons */}
@@ -35,7 +35,7 @@ const Episodes = () => {
                 {/* content */}
                 <div ref={scrollRef} className='overflow-x-auto whitespace-nowrap space-x-8 snap-x snap-mandatory scrollbar-hide'>
                     {
-                        episodes.map((episode: EpisodeType) => <PentagonCard key={episode.id} data={episode} />)
+                        locations.map((location: LocationType) => <PentagonCard key={location.id} data={location} />)
                     }
                 </div>
             </div>
@@ -43,4 +43,4 @@ const Episodes = () => {
     );
 };
 
-export default Episodes;
+export default Locations;

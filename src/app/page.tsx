@@ -2,6 +2,7 @@
 
 import Banner from "@/components/Banner/Banner";
 import Episodes from "@/components/Episodes/Episodes";
+import Locations from "@/components/Locations/Locations";
 import MeetCast from "@/components/MeetCast/MeetCast";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Banner />
         <MeetCast />
         <Episodes />
+        <Locations />
       </div>
     </div>
   );
