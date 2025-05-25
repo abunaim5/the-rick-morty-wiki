@@ -1,0 +1,118 @@
+'use client'
+import { CharacterType } from '@/types/types';
+import Image from 'next/image';
+import React, { use, useEffect, useState } from 'react';
+import { FaGlobeAsia } from 'react-icons/fa';
+import { IoMaleSharp } from 'react-icons/io5';
+import { RiAndroidFill, RiExternalLinkFill, RiHeart2Fill, RiMapPinRangeFill, RiMenuFold2Fill } from 'react-icons/ri';
+
+type CastId = {
+    params: Promise<{ id: string }>
+};
+
+const Cast = ({ params }: CastId) => {
+    const [character, setCharacter] = useState<CharacterType | null>(null);
+    const { id } = use(params);
+
+    const bgCls = 'p-[1px] rounded-lg bg-gradient-to-br from-[#15BFFD]/35 to-[#84F729]/35';
+
+    useEffect(() => {
+        const fetchCharacter = async () => {
+            try {
+                const res = await fetch(`https://rickandmortyapi.com/api/character/${id}`);
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await res.json();
+                setCharacter(data);
+            } catch (err) {
+                console.error('Error', err);
+            }
+        }
+
+        fetchCharacter();
+    }, [id]);
+
+    return (
+        <div className='min-h-screen relative bg-[#191D29] px-6 lg:px-[100px]'>
+
+            {/* background layer */}
+            <div className='h-full absolute inset-0 z-10 bg-cover bg-top bg-no-repeat' style={{ backgroundImage: "url('/images/details-banner.png')" }} />
+            <div className='h-full absolute inset-0 z-20 bg-[#191D29]/65 bg-[radial-gradient(90.85%_49.94%_at_50%_50%,rgba(217,217,217,0)_0%,rgba(25,29,41,0.9)_100%)]' />
+            <div className='h-screen absolute inset-0 z-20 opacity-60 bg-[lightgray] bg-no-repeat mix-blend-saturation' style={{ backgroundImage: "url('/images/texture.png')" }} />
+
+            {/* front content layer */}
+            <div className='relative flex items-center justify-between z-30 pt-[148px] lg:pt-[216px] pb-20'>
+                <div className='mt-16 flex items-center gap-12'>
+                    <h1 className='max-h-fit text-8xl font-extrabold text-outline transform rotate-180' style={{ writingMode: 'vertical-lr' }}>{character?.name}</h1>
+                    <div className='text-5xl text-center font-semibold text-[#14D9E5]'>
+                        <h3>{character?.name}</h3>
+                        <div className={`mt-8 ${bgCls}`}>
+                            <div className='p-[50px] backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                                {character?.image ? (<Image className='object-cover rounded-lg' height={300} width={300} sizes='' alt={`Image of ${character?.name}`} src={character?.image} />) : ('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='w-[1px] h-80 bg-white' />
+                <div className='text-white space-y-10'>
+                    <div className='flex items-center gap-10'>
+                        <div className={`${bgCls} min-w-60`}>
+                            <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                                <RiHeart2Fill className='text-5xl text-[#84F729]' />
+                                <p className='text-xl mt-4'>Status</p>
+                                <h5 className='text-[40px]'>{character?.status}</h5>
+                            </div>
+                        </div>
+                        <div className={`${bgCls} min-w-60`}>
+                            <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                                <RiAndroidFill className='text-5xl text-[#84F729]' />
+                                <p className='text-xl mt-4'>Species</p>
+                                <h5 className='text-[40px]'>{character?.species}</h5>
+                            </div>
+                        </div>
+                        <div className={`${bgCls} min-w-60`}>
+                            <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                                <IoMaleSharp className='text-5xl text-[#84F729]' />
+                                <p className='text-xl mt-4'>Gender</p>
+                                <h5 className='text-[40px]'>{character?.gender}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div className={`${bgCls} min-w-60`}>
+                        <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                            <FaGlobeAsia className='text-5xl text-[#84F729]' />
+                            <p className='text-xl mt-4'>Origin</p>
+                            <div className='flex items-center justify-between text-2xl my-4'>
+                                <h5 className='text-[40px]'>{character?.origin.name}</h5>
+                                <RiExternalLinkFill />
+                            </div>
+                        </div>
+                    </div>
+                    <div className={`${bgCls} min-w-60`}>
+                        <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                            <RiMapPinRangeFill className='text-5xl text-[#84F729]' />
+                            <p className='text-xl mt-4'>Last Known Location</p>
+                            <div className='flex items-center justify-between text-2xl my-4'>
+                                <h5 className='text-[40px]'>{character?.location.name}</h5>
+                                <RiExternalLinkFill />
+                            </div>
+                        </div>
+                    </div>
+                    <div className={`${bgCls} min-w-60`}>
+                        <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                            <RiMenuFold2Fill className='text-5xl text-[#84F729]' />
+                            <p className='text-xl mt-4 mb-9'>Episode(S)</p>
+                            <ul className='list-disc text-[40px] pl-14'>
+                                <li>{character?.gender}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Cast;
