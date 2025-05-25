@@ -4,12 +4,14 @@ import MeetCastCard from "../MeetCastCard/MeetCastCard";
 import { CharacterType } from "@/types/types";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 const MeetCast = () => {
     const characters: CharacterType[] = useCharacters();
     const scrollRef = useRef<HTMLDivElement>(null);
     const [atStart, setAtStart] = useState<boolean>(true);
     const [atEnd, setAtEnd] = useState<boolean>(false);
+    const router = useRouter();
 
     const handleScroll = (direction: 'left' | 'right') => {
         const el = scrollRef.current;
@@ -27,7 +29,7 @@ const MeetCast = () => {
         <section className='pb-24 mx-[75px] mt-[85px]'>
             <div className='flex items-center justify-between text-white'>
                 <h3 className='text-2xl font-medium'>Meet The Cast</h3>
-                <button className='text-lg px-6 py-[10px] rounded-lg border border-[#9DFE00]'>View All</button>
+                <button onClick={() => router.push('/casts')} className='text-lg px-6 py-[10px] rounded-lg border border-[#9DFE00]'>View All</button>
             </div>
             <div className='relative mt-9'>
                 {/* scroll buttons */}
@@ -37,7 +39,7 @@ const MeetCast = () => {
                 {/* content */}
                 <div ref={scrollRef} className='overflow-x-auto whitespace-nowrap space-x-8 snap-x snap-mandatory scrollbar-hide'>
                     {
-                        characters.map((character: CharacterType) => <MeetCastCard key={character.id} character={character} />)
+                        characters.map((character: CharacterType) => <div key={character.id} className='w-[120px] md:w-[290px] inline-block snap-start'><MeetCastCard character={character} /></div>)
                     }
                 </div>
             </div>
