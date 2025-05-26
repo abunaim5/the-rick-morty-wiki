@@ -63,71 +63,71 @@ const Cast = ({ params }: CastId) => {
             <div className='h-screen absolute inset-0 z-20 opacity-60 bg-[lightgray] bg-no-repeat mix-blend-saturation' style={{ backgroundImage: "url('/images/texture.png')" }} />
 
             {/* front content layer */}
-            <div className='relative flex items-center justify-between gap-8 z-30 pt-[148px] lg:pt-[216px] pb-20'>
+            <div className='relative flex flex-col xl:flex-row items-center justify-between gap-4 md:gap-10 z-30 pt-20 lg:pt-[216px] pb-10 md:pb-20'>
                 <div className='mt-16 flex items-center gap-12'>
-                    <h1 className='max-h-fit text-8xl font-extrabold text-outline transform rotate-180' style={{ writingMode: 'vertical-lr' }}>{character?.name}</h1>
+                    <h1 className='max-h-fit hidden xl:block text-8xl font-extrabold text-outline transform rotate-180' style={{ writingMode: 'vertical-lr' }}>{character?.name}</h1>
                     <div className='flex-1'>
-                        <h3 className='text-5xl text-center font-semibold text-[#14D9E5]'>{character?.name}</h3>
+                        <h3 className='text-2xl md:text-5xl text-center font-semibold text-[#14D9E5]'>{character?.name}</h3>
                         <div className={`${bgCls} mt-8`}>
-                            <div className='p-[50px] backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
-                                {character?.image ? (<Image className='object-cover rounded-lg' height={300} width={300} sizes='' alt={`Image of ${character?.name}`} src={character?.image} />) : ('')}
+                            <div className='p-7 md:p-[50px] backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                                {character?.image ? (<Image className='w-44 md:w-full object-cover rounded-lg' height={300} width={300} sizes='' alt={`Image of ${character?.name}`} src={character?.image} />) : ('')}
                             </div>
                         </div>
                     </div>
                     {/* middle border */}
-                    <div className='w-[1px] mt-20 ml-32 h-80 bg-gradient-to-br from-[#84F729]/35 to-[#15BFFD]/35' />
+                    <div className='hidden xl:block w-[1px] mt-20 ml-32 h-80 bg-gradient-to-br from-[#84F729]/35 to-[#15BFFD]/35' />
                 </div>
 
-                <div className='text-white space-y-10 max-w-[800px]'>
-                    <div className='flex items-center gap-10'>
-                        <div className={`${bgCls} min-w-60`}>
-                            <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
-                                <RiHeart2Fill className='text-5xl text-[#84F729]' />
-                                <p className='text-xl mt-4'>Status</p>
-                                <h5 className='text-[40px]'>{character?.status}</h5>
+                <div className='text-white space-y-4 md:space-y-10 max-w-[800px]'>
+                    <div className='flex items-center gap-4 md:gap-10 w-full'>
+                        <div className={`${bgCls} w-full`}>
+                            <div className='px-3 py-2 md:px-8 md:py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                                <RiHeart2Fill className='text-xl md:text-5xl text-[#84F729]' />
+                                <p className='text-xs md:text-xl mt-4'>Status</p>
+                                <h5 className='text-base md:text-[40px] leading-6 md:leading-[60px]'>{character?.status}</h5>
                             </div>
                         </div>
-                        <div className={`${bgCls} min-w-60`}>
-                            <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
-                                <RiAndroidFill className='text-5xl text-[#84F729]' />
-                                <p className='text-xl mt-4'>Species</p>
-                                <h5 className='text-[40px]'>{character?.species}</h5>
+                        <div className={`${bgCls} w-full`}>
+                            <div className='px-3 py-2 md:px-8 md:py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                                <RiAndroidFill className='text-xl md:text-5xl text-[#84F729]' />
+                                <p className='text-xs md:text-xl mt-4'>Species</p>
+                                <h5 className='text-base md:text-[40px] leading-6 md:leading-[60px]'>{character?.species}</h5>
                             </div>
                         </div>
-                        <div className={`${bgCls} min-w-60`}>
-                            <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
-                                <IoMaleSharp className='text-5xl text-[#84F729]' />
-                                <p className='text-xl mt-4'>Gender</p>
-                                <h5 className='text-[40px]'>{character?.gender}</h5>
+                        <div className={`${bgCls} w-full`}>
+                            <div className='px-3 py-2 md:px-8 md:py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                                <IoMaleSharp className='text-xl md:text-5xl text-[#84F729]' />
+                                <p className='text-xs md:text-xl mt-4'>Gender</p>
+                                <h5 className='text-base md:text-[40px] leading-6 md:leading-[60px]'>{character?.gender}</h5>
                             </div>
                         </div>
                     </div>
 
-                    <div className={`${bgCls} min-w-60`}>
-                        <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
-                            <FaGlobeAsia className='text-5xl text-[#84F729]' />
-                            <p className='text-xl mt-4'>Origin</p>
-                            <div className='flex items-center justify-between text-2xl my-4'>
-                                <h5 className='text-[40px]'>{character?.origin.name}</h5>
-                                <RiExternalLinkFill />
+                    <div className={`${bgCls} w-full`}>
+                        <div className='px-3 py-2 md:px-8 md:py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                            <FaGlobeAsia className='text-xl md:text-5xl text-[#84F729]' />
+                            <p className='text-xs md:text-xl mt-4'>Origin</p>
+                            <div className='flex items-center justify-between text-2xl my-1 md:my-4'>
+                                <h5 className='text-base md:text-[40px] leading-6 md:leading-[60px]'>{character?.origin.name}</h5>
+                                <RiExternalLinkFill className='text-sm md:text-2xl' />
                             </div>
                         </div>
                     </div>
-                    <div className={`${bgCls} min-w-60`}>
-                        <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
-                            <RiMapPinRangeFill className='text-5xl text-[#84F729]' />
-                            <p className='text-xl mt-4'>Last Known Location</p>
-                            <div className='flex items-center justify-between text-2xl my-4'>
-                                <h5 className='text-[40px]'>{character?.location.name}</h5>
-                                <RiExternalLinkFill />
+                    <div className={`${bgCls} w-full`}>
+                        <div className='px-3 py-2 md:px-8 md:py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
+                            <RiMapPinRangeFill className='text-xl md:text-5xl text-[#84F729]' />
+                            <p className='text-xs md:text-xl mt-4'>Last Known Location</p>
+                            <div className='flex items-center justify-between text-2xl my-1 md:my-4'>
+                                <h5 className='text-base md:text-[40px] leading-6 md:leading-[60px]'>{character?.location.name}</h5>
+                                <RiExternalLinkFill className='text-sm md:text-2xl' />
                             </div>
                         </div>
                     </div>
-                    <div className={`${bgCls} min-w-60`}>
-                        <div className='px-8 py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80 overflow-hidden'>
-                            <RiMenuFold2Fill className='text-5xl text-[#84F729]' />
-                            <p className='text-xl mt-4 mb-9'>Episode(S)</p>
-                            <ul className='list-disc text-[40px] pl-14 max-h-[300px] overflow-y-auto scrollbar'>
+                    <div className={`${bgCls} w-full`}>
+                        <div className='px-3 py-2 md:px-8 md:py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80 overflow-hidden'>
+                            <RiMenuFold2Fill className='text-xl md:text-5xl text-[#84F729]' />
+                            <p className='text-xs md:text-xl mt-4 mb-9'>Episode(S)</p>
+                            <ul className='list-disc text-base md:text-[40px] leading-6 md:leading-[60px] font-semibold pl-7 md:pl-14 max-h-[300px] overflow-y-auto lg:scrollbar'>
                                 {
                                     episodes.map(episode => <li key={episode.id}>{episode.name}</li>)
                                 }
