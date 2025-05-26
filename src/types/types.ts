@@ -11,6 +11,7 @@ type CharacterType = {
         name: string;
     };
     image: string;
+    episode: string[];
 };
 
 type EpisodeType = {
