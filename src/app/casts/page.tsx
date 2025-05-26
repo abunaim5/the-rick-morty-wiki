@@ -17,8 +17,8 @@ const Casts = () => {
 
             {/* front content layer */}
             <div className='relative z-30 pt-[148px] lg:pt-[216px]'>
-                <h1 className='text-2xl lg:text-6xl font-semibold text-[#14D9E5]'>The Cast</h1>
-                <div className='mt-16 pb-[156px] grid grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 items-center gap-4 md:gap-8 lg:gap-11'>
+                <h1 className='text-3xl md:text-4xl lg:text-6xl font-semibold text-[#14D9E5]'>The Cast</h1>
+                <div className='mt-8 md:mt-16 pb-10 md:pb-28 grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 items-center gap-4 md:gap-8 lg:gap-11'>
                     {
                         characters.map((character: CharacterType) => <MeetCastCard key={character.id} character={character} />)
                     }
