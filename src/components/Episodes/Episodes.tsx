@@ -24,13 +24,13 @@ const Episodes = () => {
     };
 
     return (
-        <section className='pb-24 mx-[75px] text-white'>
+        <section className='pb-24 mx-4 md:mx-[75px] text-white'>
             <h3 className='text-2xl font-medium'>Episodes</h3>
 
             <div className='relative mt-9'>
                 {/* scroll buttons */}
-                {!atStart && (<button onClick={() => handleScroll('left')} className='absolute z-50 -left-6 top-1/2 transform -translate-y-1/2 text-3xl p-2 rounded-full bg-white text-[#9DFE00]'><MdKeyboardArrowLeft /></button>)}
-                {!atEnd && (<button onClick={() => handleScroll('right')} className='absolute z-50 -right-6 top-1/2 transform -translate-y-1/2 text-3xl p-2 rounded-full bg-white text-[#9DFE00]'><MdKeyboardArrowRight /></button>)}
+                {!atStart && (<button onClick={() => handleScroll('left')} className='absolute z-50 left-0 md:-left-6 top-1/2 transform -translate-y-1/2 text-3xl p-2 rounded-full bg-white text-[#9DFE00]'><MdKeyboardArrowLeft /></button>)}
+                {!atEnd && (<button onClick={() => handleScroll('right')} className='absolute z-50 right-0 md:-right-6 top-1/2 transform -translate-y-1/2 text-3xl p-2 rounded-full bg-white text-[#9DFE00]'><MdKeyboardArrowRight /></button>)}
 
                 {/* content */}
                 <div ref={scrollRef} className='overflow-x-auto whitespace-nowrap space-x-8 snap-x snap-mandatory scrollbar-hide'>

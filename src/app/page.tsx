@@ -15,7 +15,7 @@ export default function Home() {
       <div className='h-screen absolute inset-0 z-20 opacity-60 bg-[lightgray] bg-no-repeat mix-blend-saturation' style={{ backgroundImage: "url('/images/texture.png')" }} />
 
       {/* front content layer */}
-      <div className='relative z-30 pt-[235px]'>
+      <div className='relative z-30 pt-[114px] md:pt-[235px]'>
         <Banner />
         <MeetCast />
         <Episodes />
