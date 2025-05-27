@@ -31,10 +31,10 @@ const MeetCast = () => {
                 <h3 className='text-base md:text-2xl font-medium'>Meet The Cast</h3>
                 <button onClick={() => router.push('/casts')} className='text-xs md:text-lg px-4 md:px-6 py-1 md:py-[10px] rounded-lg border border-[#9DFE00]'>View All</button>
             </div>
-            <div className='relative mt-9'>
+            <div className='relative mt-4 md:mt-9'>
                 {/* scroll buttons */}
-                {!atStart && (<button onClick={() => handleScroll('left')} className='absolute z-50 left-0 md:-left-6 top-1/2 transform -translate-y-1/2 text-3xl p-2 rounded-full bg-white text-[#9DFE00]'><MdKeyboardArrowLeft /></button>)}
-                {!atEnd && (<button onClick={() => handleScroll('right')} className='absolute z-50 right-0 md:-right-6 top-1/2 transform -translate-y-1/2 text-3xl p-2 rounded-full bg-white text-[#9DFE00]'><MdKeyboardArrowRight /></button>)}
+                {!atStart && (<button onClick={() => handleScroll('left')} className='absolute z-50 left-0 md:-left-6 top-1/2 transform -translate-y-1/2 text-2xl md:text-3xl p-[5px] md:p-2 rounded-full bg-white text-[#9DFE00]'><MdKeyboardArrowLeft /></button>)}
+                {!atEnd && (<button onClick={() => handleScroll('right')} className='absolute z-50 right-0 md:-right-6 top-1/2 transform -translate-y-1/2 text-2xl md:text-3xl p-[5px] md:p-2 rounded-full bg-white text-[#9DFE00]'><MdKeyboardArrowRight /></button>)}
 
                 {/* content */}
                 <div ref={scrollRef} className='overflow-x-auto whitespace-nowrap space-x-4 md:space-x-8 snap-x snap-mandatory scrollbar-hide'>
