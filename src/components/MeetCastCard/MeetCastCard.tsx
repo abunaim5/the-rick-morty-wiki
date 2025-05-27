@@ -13,7 +13,7 @@ const MeetCastCard = ({ character }: { character: CharacterType }) => {
                     <div className='w-full max-h-[216px] mb-6'>
                         <Image className='w-full h-auto max-h-[216px] object-cover rounded-md' width={0} height={0} sizes='100vw' alt={`Image of ${character.name}`} src={character.image} />
                     </div>
-                    <span className='text-xs md:text-base'>{character.name}</span>
+                    <span className='text-[10px] md:text-base'>{character.name}</span>
                 </div>
             </div>
         </div>

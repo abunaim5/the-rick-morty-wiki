@@ -26,10 +26,10 @@ const MeetCast = () => {
     };
 
     return (
-        <section className='pb-24 mx-4 md:mx-[75px] mt-[85px]'>
+        <section className='pb-8 md:pb-24 mx-4 md:mx-[75px] mt-14 md:mt-[85px]'>
             <div className='flex items-center justify-between text-white'>
-                <h3 className='text-2xl font-medium'>Meet The Cast</h3>
-                <button onClick={() => router.push('/casts')} className='text-lg px-6 py-[10px] rounded-lg border border-[#9DFE00]'>View All</button>
+                <h3 className='text-base md:text-2xl font-medium'>Meet The Cast</h3>
+                <button onClick={() => router.push('/casts')} className='text-xs md:text-lg px-4 md:px-6 py-1 md:py-[10px] rounded-lg border border-[#9DFE00]'>View All</button>
             </div>
             <div className='relative mt-9'>
                 {/* scroll buttons */}
@@ -39,7 +39,7 @@ const MeetCast = () => {
                 {/* content */}
                 <div ref={scrollRef} className='overflow-x-auto whitespace-nowrap space-x-4 md:space-x-8 snap-x snap-mandatory scrollbar-hide'>
                     {
-                        characters.map((character: CharacterType) => <div key={character.id} className='w-[120px] md:w-[290px] inline-block snap-start'><MeetCastCard character={character} /></div>)
+                        characters.map((character: CharacterType) => <div key={character.id} className='w-36 md:w-[290px] inline-grid snap-start'><MeetCastCard character={character} /></div>)
                     }
                 </div>
             </div>
