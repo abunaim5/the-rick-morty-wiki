@@ -4,6 +4,7 @@ import Image from 'next/image';
 import React, { use, useEffect, useState } from 'react';
 import { FaGlobeAsia } from 'react-icons/fa';
 import { IoMaleSharp } from 'react-icons/io5';
+import { PiStarFourFill } from 'react-icons/pi';
 import { RiAndroidFill, RiExternalLinkFill, RiHeart2Fill, RiMapPinRangeFill, RiMenuFold2Fill } from 'react-icons/ri';
 
 type CastId = {
@@ -55,12 +56,21 @@ const Cast = ({ params }: CastId) => {
     }, [character?.episode]);
 
     return (
-        <div className='min-h-screen relative bg-[#191D29] px-6 lg:px-[100px]'>
+        <div className='min-h-screen relative bg-[#191D29] px-6 lg:px-[100px] overflow-clip'>
 
             {/* background layer */}
             <div className='h-full absolute inset-0 z-10 bg-cover bg-top bg-no-repeat' style={{ backgroundImage: "url('/images/details-banner.png')" }} />
             <div className='h-full absolute inset-0 z-20 bg-[#191D29]/65 bg-[radial-gradient(90.85%_49.94%_at_50%_50%,rgba(217,217,217,0)_0%,rgba(25,29,41,0.9)_100%)]' />
             <div className='h-screen absolute inset-0 z-20 opacity-60 bg-[lightgray] bg-no-repeat mix-blend-saturation' style={{ backgroundImage: "url('/images/texture.png')" }} />
+
+            {/* background blue gradient */}
+            <span className='w-[356px] h-[356px] absolute -right-24 top-1/2 transform -translate-y-1/2 z-30  rounded-full blur-[175px] bg-[#2A3E84]' />
+            <span className='w-[356px] h-[356px] absolute -left-24 -bottom-60 z-30  rounded-full blur-[175px] bg-[#2A3E84]' />
+
+            {/* background stars */}
+            <PiStarFourFill className='absolute top-[760px] left-20 z-40 transform rotate-[170deg] text-2xl text-[#15BFFD]' />
+            <PiStarFourFill className='absolute bottom-20 left-[420px] z-40 transform rotate-[170deg] text-xs text-[#15BFFD]' />
+            <PiStarFourFill className='absolute bottom-[450px] right-14 z-40 transform rotate-[170deg] text-2xl text-[#15BFFD]' />
 
             {/* front content layer */}
             <div className='relative flex flex-col xl:flex-row items-center justify-between gap-4 md:gap-10 z-30 pt-20 lg:pt-[216px] pb-10 md:pb-20'>
