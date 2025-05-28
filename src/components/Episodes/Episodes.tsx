@@ -8,9 +8,13 @@ import { EpisodeType } from "@/types/types";
 const Episodes = () => {
     const episodes: EpisodeType[] = useEpisodes();
     const scrollRef = useRef<HTMLDivElement>(null);
+    const [isDragging, setIsDragging] = useState<boolean>(false);
+    const [startX, setStartX] = useState<number>(0);
+    const [scrollLeft, setScrollLeft] = useState<number>(0);
     const [atStart, setAtStart] = useState<boolean>(true);
     const [atEnd, setAtEnd] = useState<boolean>(false);
 
+    // handle scroll with button
     const handleScroll = (direction: 'left' | 'right') => {
         const el = scrollRef.current;
         if (!el) return;
@@ -23,6 +27,26 @@ const Episodes = () => {
         }, 200);
     };
 
+    // handle drag to scroll
+    const handleMouseDown = (e: React.MouseEvent) => {
+        const el = scrollRef.current;
+        if (!el) return;
+        setIsDragging(true);
+        setStartX(e.pageX - el.offsetLeft);
+        setScrollLeft(el.scrollLeft);
+    };
+
+    const handleMouseLeave = () => setIsDragging(false);
+    const handleMouseUp = () => setIsDragging(false);
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        e.preventDefault();
+        if (!isDragging || !scrollRef.current) return;
+        const x = e.pageX - scrollRef.current.offsetLeft;
+        const walk = (x - startX) * 3;
+        scrollRef.current.scrollLeft = scrollLeft - walk;
+    }
+
     return (
         <section className='pb-8 md:pb-24 mx-4 md:mx-[75px] text-white'>
             <h3 className='text-base md:text-2xl font-medium'>Episodes</h3>
@@ -33,7 +57,14 @@ const Episodes = () => {
                 {!atEnd && (<button onClick={() => handleScroll('right')} className='absolute z-50 right-0 md:-right-6 top-1/2 transform -translate-y-1/2 text-2xl md:text-3xl p-[5px] md:p-2 rounded-full bg-white text-[#9DFE00]'><MdKeyboardArrowRight /></button>)}
 
                 {/* content */}
-                <div ref={scrollRef} className='overflow-x-auto whitespace-nowrap space-x-4 md:space-x-8 snap-x snap-mandatory scrollbar-hide'>
+                <div
+                    ref={scrollRef}
+                    onMouseDown={handleMouseDown}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseMove={handleMouseMove}
+                    className='cursor-grab active:cursor-grabbing scroll-smooth select-none overflow-x-auto whitespace-nowrap space-x-4 md:space-x-8 snap-x snap-mandatory scrollbar-hide'
+                >
                     {
                         episodes.map((episode: EpisodeType) => <PentagonCard key={episode.id} data={episode} />)
                     }

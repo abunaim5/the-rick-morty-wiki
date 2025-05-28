@@ -64,13 +64,13 @@ const Cast = ({ params }: CastId) => {
             <div className='h-screen absolute inset-0 z-20 opacity-60 bg-[lightgray] bg-no-repeat mix-blend-saturation' style={{ backgroundImage: "url('/images/texture.png')" }} />
 
             {/* background blue gradient */}
-            <span className='w-[356px] h-[356px] absolute -right-24 top-1/2 transform -translate-y-1/2 z-30  rounded-full blur-[175px] bg-[#2A3E84]' />
-            <span className='w-[356px] h-[356px] absolute -left-24 -bottom-60 z-30  rounded-full blur-[175px] bg-[#2A3E84]' />
+            <span className='hidden lg:block w-[356px] h-[356px] absolute -right-24 top-1/2 transform -translate-y-1/2 z-30  rounded-full blur-[175px] bg-[#2A3E84]' />
+            <span className='hidden lg:block w-[356px] h-[356px] absolute -left-24 -bottom-60 z-30  rounded-full blur-[175px] bg-[#2A3E84]' />
 
             {/* background stars */}
-            <PiStarFourFill className='absolute top-[760px] left-20 z-40 transform rotate-[170deg] text-2xl text-[#15BFFD]' />
-            <PiStarFourFill className='absolute bottom-20 left-[420px] z-40 transform rotate-[170deg] text-xs text-[#15BFFD]' />
-            <PiStarFourFill className='absolute bottom-[450px] right-14 z-40 transform rotate-[170deg] text-2xl text-[#15BFFD]' />
+            <PiStarFourFill className='hidden lg:block absolute top-[760px] left-20 z-40 transform rotate-[170deg] text-2xl text-[#15BFFD]' />
+            <PiStarFourFill className='hidden lg:block absolute bottom-20 left-[420px] z-40 transform rotate-[170deg] text-xs text-[#15BFFD]' />
+            <PiStarFourFill className='hidden lg:block absolute bottom-[450px] right-14 z-40 transform rotate-[170deg] text-2xl text-[#15BFFD]' />
 
             {/* front content layer */}
             <div className='relative flex flex-col xl:flex-row items-center justify-between gap-4 md:gap-10 z-30 pt-20 lg:pt-[216px] pb-10 md:pb-20'>
