@@ -4,7 +4,7 @@ import MeetCastCard from "../MeetCastCard/MeetCastCard";
 import { CharacterType } from "@/types/types";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import React, { useRef, useState } from "react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const MeetCast = () => {
     const characters: CharacterType[] = useCharacters();
@@ -14,7 +14,6 @@ const MeetCast = () => {
     const [scrollLeft, setScrollLeft] = useState<number>(0);
     const [atStart, setAtStart] = useState<boolean>(true);
     const [atEnd, setAtEnd] = useState<boolean>(false);
-    const router = useRouter();
 
     // handle scroll with button
     const handleScroll = (direction: 'left' | 'right') => {
@@ -59,7 +58,7 @@ const MeetCast = () => {
                         <MdKeyboardArrowRight />
                     </div>
                 </div>
-                <button onClick={() => router.push('/casts')} className='text-xs md:text-lg px-4 md:px-6 py-1 md:py-[10px] rounded-lg border border-[#9DFE00]'>View All</button>
+                <Link href='/casts' className='text-xs md:text-lg px-4 md:px-6 py-1 md:py-[10px] rounded-lg border border-[#9DFE00]'>View All</Link>
             </div>
             <div className='relative mt-4 md:mt-9'>
 

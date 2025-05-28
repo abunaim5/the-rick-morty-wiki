@@ -1,5 +1,6 @@
 'use client'
 import Image from "next/image";
+import Link from "next/link";
 import { FaRegCirclePlay } from "react-icons/fa6";
 
 const Banner = () => {
@@ -32,7 +33,7 @@ const Banner = () => {
 
 
             <div className='flex flex-col-reverse lg:flex-row items-start justify-center lg:items-center gap-8 lg:gap-16 font-semibold mt-3 md:mt-6'>
-                <button className={`${gradientCls} flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 text-xs md:text-xl rounded-full`}><FaRegCirclePlay className='text-sm md:text-2xl' /> <span>Watch Now</span></button>
+                <Link href='https://youtu.be/KQ9Cgdsa9tc?si=XcmuQBYrBIcUkKCj'  target='_blank' className={`${gradientCls} flex items-center gap-2 px-4 py-3 md:px-6 md:py-4 text-xs md:text-xl rounded-full`}><FaRegCirclePlay className='text-sm md:text-2xl' /> <span>Watch Now</span></Link>
                 <p className='max-w-[260px] md:max-w-[364px] text-[10px] md:text-sm text-[#14D9E5]'>Brilliant but boozy scientist Rick hijacks his fretful teenage grandson, Morty, for wild escapades in other worlds and alternate dimensions.</p>
             </div>
         </section>
