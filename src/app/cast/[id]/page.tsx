@@ -75,12 +75,12 @@ const Cast = ({ params }: CastId) => {
             {/* front content layer */}
             <div className='relative flex flex-col xl:flex-row items-center justify-between gap-4 md:gap-10 z-30 pt-20 lg:pt-[216px] pb-10 md:pb-20'>
                 <div className='mt-16 flex items-center gap-12'>
-                    <h1 className='max-h-fit hidden xl:block text-8xl font-extrabold text-outline transform rotate-180' style={{ writingMode: 'vertical-lr' }}>{character?.name}</h1>
-                    <div className='flex-1'>
+                    <h1 className='max-h-fit hidden xl:block text-8xl text-nowrap font-extrabold text-outline transform rotate-180' style={{ writingMode: 'vertical-lr' }}>{character?.name}</h1>
+                    <div className='flex-1 flex flex-col items-center'>
                         <h3 className='text-2xl md:text-5xl text-center font-semibold text-[#14D9E5]'>{character?.name}</h3>
-                        <div className={`${bgCls} mt-8`}>
+                        <div className={`${bgCls} mt-8 max-w-fit`}>
                             <div className='p-7 md:p-[50px] backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
-                                {character?.image ? (<Image className='w-44 md:w-full object-cover rounded-lg' height={300} width={300} sizes='' alt={`Image of ${character?.name}`} src={character?.image} />) : ('')}
+                                {character?.image ? (<Image className='w-44 lg:w-[300px] object-cover rounded-lg' height={300} width={300} sizes='' alt={`Image of ${character?.name}`} src={character?.image} />) : ('')}
                             </div>
                         </div>
                     </div>
@@ -88,23 +88,23 @@ const Cast = ({ params }: CastId) => {
                     <div className='hidden xl:block w-[1px] mt-20 ml-32 h-80 bg-gradient-to-br from-[#84F729]/35 to-[#15BFFD]/35' />
                 </div>
 
-                <div className='text-white space-y-4 md:space-y-10 max-w-[800px]'>
+                <div className='text-white space-y-4 md:space-y-10 w-full max-w-[800px]'>
                     <div className='flex items-center gap-4 md:gap-10 w-full'>
-                        <div className={`${bgCls} w-full`}>
+                        <div className={`${bgCls} flex-1`}>
                             <div className='px-3 py-2 md:px-8 md:py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
                                 <RiHeart2Fill className='text-xl md:text-5xl text-[#84F729]' />
                                 <p className='text-xs md:text-xl mt-4'>Status</p>
                                 <h5 className='text-base md:text-[40px] leading-6 md:leading-[60px]'>{character?.status}</h5>
                             </div>
                         </div>
-                        <div className={`${bgCls} w-full`}>
+                        <div className={`${bgCls} flex-1`}>
                             <div className='px-3 py-2 md:px-8 md:py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
                                 <RiAndroidFill className='text-xl md:text-5xl text-[#84F729]' />
                                 <p className='text-xs md:text-xl mt-4'>Species</p>
                                 <h5 className='text-base md:text-[40px] leading-6 md:leading-[60px]'>{character?.species}</h5>
                             </div>
                         </div>
-                        <div className={`${bgCls} w-full`}>
+                        <div className={`${bgCls} flex-1`}>
                             <div className='px-3 py-2 md:px-8 md:py-4 backdrop-blur-md rounded-lg bg-[#1e1f2f]/80'>
                                 <IoMaleSharp className='text-xl md:text-5xl text-[#84F729]' />
                                 <p className='text-xs md:text-xl mt-4'>Gender</p>

@@ -48,7 +48,7 @@ const Locations = () => {
     }
 
     return (
-        <section className='pb-11 md:pb-[70px] mx-4 md:mx-[75px] text-white'>
+        <section className='pb-11 md:pb-[70px] mx-4 lg:mx-[75px] text-white'>
             <h3 className='text-base md:text-2xl font-medium'>Locations</h3>
 
             <div className='relative mt-4 md:mt-9'>

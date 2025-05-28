@@ -50,7 +50,7 @@ const MeetCast = () => {
     }
 
     return (
-        <section className='pb-8 md:pb-24 mx-4 md:mx-[75px] mt-14 md:mt-[85px]'>
+        <section className='pb-8 md:pb-24 mx-4 lg:mx-[75px] mt-14 md:mt-[85px]'>
             <div className='flex items-center justify-between text-white'>
                 <div className='flex items-center gap-6'>
                     <h3 className='text-base md:text-2xl font-medium'>Meet The Cast</h3>
